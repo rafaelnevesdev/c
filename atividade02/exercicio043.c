@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <ctype.h>
 
 int main() {
     char nome[30], categoria;
@@ -12,7 +11,10 @@ int main() {
     printf("Salario atual: R$ ");
     scanf("%f", &salario);
 
-    categoria = toupper(categoria);
+    // Converter para maiúscula manualmente (apenas se for minúscula)
+    if (categoria >= 'a' && categoria <= 'z') {
+        categoria = categoria - 32;
+    }
 
     if (categoria == 'A' || categoria == 'C' || categoria == 'F' || categoria == 'H')
         novoSalario = salario * 1.10;
